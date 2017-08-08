@@ -1,0 +1,66 @@
+﻿@model SistemaInventario.Models.RegistroSpares
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RegistroSpares</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlmacenId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlmacenId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroParte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroParte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ubicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ubicacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SpareId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
