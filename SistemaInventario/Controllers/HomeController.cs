@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SistemaInventario.Controllers
+namespace Sistema_de_Inventario.Controllers
 {
     public class HomeController : Controller
     {

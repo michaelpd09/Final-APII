@@ -15,7 +15,7 @@ namespace SistemaInventario.DAL
         }
         public DbSet<RegistroUsuarios> usuario { get; set; }
         public DbSet<RegistroAlmacenes> almacen { get; set; }
-        public DbSet<RegistroSpares> spare { get; set; }
-        public DbSet<DetalleAlmacenSpares> detalle { get; set; }
+        public DbSet<DetalleRegistroSpares> spare { get; set; }
+        public DbSet<TiposUsuarios> tipos { get; set; }
     }
 }

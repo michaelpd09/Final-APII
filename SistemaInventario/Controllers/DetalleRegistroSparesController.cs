@@ -8,110 +8,115 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaInventario.DAL;
 using SistemaInventario.Models;
-using SistemaInventario.BLL;
 
 namespace SistemaInventario.Controllers
 {
-    public class RegistroSparesController : Controller
+    public class DetalleRegistroSparesController : Controller
     {
         private InventarioDb db = new InventarioDb();
 
-        // GET: RegistroSpares
+        // GET: DetalleRegistroSpares
         public ActionResult Index()
         {
-            return View(db.spare.ToList());
+            var spare = db.spare.Include(d => d.RegistroAlmacenes);
+            return View(spare.ToList());
         }
 
-        // GET: RegistroSpares/Details/5
+        // GET: DetalleRegistroSpares/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RegistroSpares registroSpares = db.spare.Find(id);
-            if (registroSpares == null)
+            DetalleRegistroSpares detalleRegistroSpares = db.spare.Find(id);
+            if (detalleRegistroSpares == null)
             {
                 return HttpNotFound();
             }
-            return View(registroSpares);
+            return View(detalleRegistroSpares);
         }
 
-        // GET: RegistroSpares/Create
+        // GET: DetalleRegistroSpares/Create
         public ActionResult Create()
         {
+            ViewBag.AlmacenId = new SelectList(db.almacen, "AlmacenId", "Nombre");
             return View();
         }
 
-        // POST: RegistroSpares/Create
+        // POST: DetalleRegistroSpares/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SpareId,AlmacenId,Nombre,NumeroParte,SerialNumero,Ubicacion,Fecha")] RegistroSpares registroSpares)
+        public ActionResult Create([Bind(Include = "SpareId,AlmacenId,Nombre,NumeroParte,SerialNumero,Ubicacion,Fecha")] DetalleRegistroSpares detalleRegistroSpares)
         {
             if (ModelState.IsValid)
             {
-                db.spare.Add(registroSpares);
+                db.spare.Add(detalleRegistroSpares);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(registroSpares);
+            ViewBag.AlmacenId = new SelectList(db.almacen, "AlmacenId", "Nombre", detalleRegistroSpares.AlmacenId);
+            return View(detalleRegistroSpares);
         }
 
-        // GET: RegistroSpares/Edit/5
+        // GET: DetalleRegistroSpares/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RegistroSpares registroSpares = db.spare.Find(id);
-            if (registroSpares == null)
+            DetalleRegistroSpares detalleRegistroSpares = db.spare.Find(id);
+            if (detalleRegistroSpares == null)
             {
                 return HttpNotFound();
             }
-            return View(registroSpares);
+            ViewBag.AlmacenId = new SelectList(db.almacen, "AlmacenId", "Nombre", detalleRegistroSpares.AlmacenId);
+            return View(detalleRegistroSpares);
         }
 
-        // POST: RegistroSpares/Edit/5
+        // POST: DetalleRegistroSpares/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit( RegistroSpares registroSpares)
+        public ActionResult Edit([Bind(Include = "SpareId,AlmacenId,Nombre,NumeroParte,SerialNumero,Ubicacion,Fecha")] DetalleRegistroSpares detalleRegistroSpares)
         {
             if (ModelState.IsValid)
             {
-                SparesBLL.Guardar(registroSpares);
+                db.Entry(detalleRegistroSpares).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(registroSpares);
+            ViewBag.AlmacenId = new SelectList(db.almacen, "AlmacenId", "Nombre", detalleRegistroSpares.AlmacenId);
+            return View(detalleRegistroSpares);
         }
 
-        // GET: RegistroSpares/Delete/5
+        // GET: DetalleRegistroSpares/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            RegistroSpares registroSpares = db.spare.Find(id);
-            if (registroSpares == null)
+            DetalleRegistroSpares detalleRegistroSpares = db.spare.Find(id);
+            if (detalleRegistroSpares == null)
             {
                 return HttpNotFound();
             }
-            return View(registroSpares);
+            return View(detalleRegistroSpares);
         }
 
-        // POST: RegistroSpares/Delete/5
+        // POST: DetalleRegistroSpares/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            RegistroSpares registroSpares = db.spare.Find(id);
-            db.spare.Remove(registroSpares);
+            DetalleRegistroSpares detalleRegistroSpares = db.spare.Find(id);
+            db.spare.Remove(detalleRegistroSpares);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

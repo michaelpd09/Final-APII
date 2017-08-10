@@ -12,6 +12,8 @@ namespace SistemaInventario.Models
 
         public int UsuarioId { get; set; }
 
+        public int TiposUsuariosId { get; set; }
+
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Nombre Obligatorio")]
         public string Nombre { get; set; }
@@ -20,19 +22,15 @@ namespace SistemaInventario.Models
         [Required(ErrorMessage = "Apellido Obligatorio")]
         public string Apellido { get; set; }
 
-      //  [DataType(DataType.PhoneNumber, ErrorMessage = "Telefono Obligatorio")]
-     //   public string Telefono { get; set; }
 
         [Required(ErrorMessage = "La Clave es Obligatorio")]
         [DataType(DataType.Password)]
         public string Clave { get; set; }
 
-
-        [Required(ErrorMessage = "Tipo Obligatorio")]
-        public string Tipo { get; set; }
-
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
+
+        public virtual TiposUsuarios TiposUsuarios { get; set; }
 
     }
 }

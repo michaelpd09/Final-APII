@@ -6,13 +6,13 @@ using System.Web;
 
 namespace SistemaInventario.Models
 {
-    public class RegistroSpares
+    public class DetalleRegistroSpares
     {
         [Key]
 
-        [Required(ErrorMessage = "Datos Obligatorio")]
-        public int SpareId { get; set; }
 
+        public int SpareId { get; set; }
+  
         [Required(ErrorMessage = "Datos Obligatorio")]
         public int AlmacenId { get; set; }
 
@@ -29,5 +29,7 @@ namespace SistemaInventario.Models
         public string Ubicacion { get; set; }
 
         public DateTime Fecha { get; set; }
+
+        public virtual RegistroAlmacenes RegistroAlmacenes { get; set; }
     }
 }

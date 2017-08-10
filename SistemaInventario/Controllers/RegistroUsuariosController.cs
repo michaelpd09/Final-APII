@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaInventario.DAL;
 using SistemaInventario.Models;
-using SistemaInventario.BLL;
 
 namespace SistemaInventario.Controllers
 {
@@ -19,7 +18,8 @@ namespace SistemaInventario.Controllers
         // GET: RegistroUsuarios
         public ActionResult Index()
         {
-            return View(db.usuario.ToList());
+            var usuario = db.usuario.Include(r => r.TiposUsuarios);
+            return View(usuario.ToList());
         }
 
         // GET: RegistroUsuarios/Details/5
@@ -40,6 +40,7 @@ namespace SistemaInventario.Controllers
         // GET: RegistroUsuarios/Create
         public ActionResult Create()
         {
+            ViewBag.TiposUsuariosId = new SelectList(db.tipos, "TiposUsuariosId", "Nombre");
             return View();
         }
 
@@ -48,14 +49,16 @@ namespace SistemaInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( RegistroUsuarios registroUsuarios)
+        public ActionResult Create([Bind(Include = "UsuarioId,TiposUsuariosId,Nombre,Apellido,Clave,Fecha")] RegistroUsuarios registroUsuarios)
         {
             if (ModelState.IsValid)
             {
-                UsuariosBLL.Guardar(registroUsuarios);
+                db.usuario.Add(registroUsuarios);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.TiposUsuariosId = new SelectList(db.tipos, "TiposUsuariosId", "Nombre", registroUsuarios.TiposUsuariosId);
             return View(registroUsuarios);
         }
 
@@ -71,6 +74,7 @@ namespace SistemaInventario.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.TiposUsuariosId = new SelectList(db.tipos, "TiposUsuariosId", "Nombre", registroUsuarios.TiposUsuariosId);
             return View(registroUsuarios);
         }
 
@@ -79,7 +83,7 @@ namespace SistemaInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UsuarioId,Nombre,Apellido,Clave,Tipo,Fecha")] RegistroUsuarios registroUsuarios)
+        public ActionResult Edit([Bind(Include = "UsuarioId,TiposUsuariosId,Nombre,Apellido,Clave,Fecha")] RegistroUsuarios registroUsuarios)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace SistemaInventario.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.TiposUsuariosId = new SelectList(db.tipos, "TiposUsuariosId", "Nombre", registroUsuarios.TiposUsuariosId);
             return View(registroUsuarios);
         }
 

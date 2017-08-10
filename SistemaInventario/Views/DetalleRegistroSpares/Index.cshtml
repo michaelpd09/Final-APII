@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SistemaInventario.Models.RegistroSpares>
+﻿@model IEnumerable<SistemaInventario.Models.DetalleRegistroSpares>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AlmacenId)
+            @Html.DisplayNameFor(model => model.RegistroAlmacenes.Nombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -35,7 +35,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AlmacenId)
+            @Html.DisplayFor(modelItem => item.RegistroAlmacenes.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
