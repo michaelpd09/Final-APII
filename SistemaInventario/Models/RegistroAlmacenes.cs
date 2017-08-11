@@ -14,6 +14,7 @@ namespace SistemaInventario.Models
 
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Nombre Obligatorio")]
+        [Display(Name = "Nombre del Almacen ")]
         public string Nombre { get; set; }
 
 

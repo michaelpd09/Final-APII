@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaInventario.DAL;
 using SistemaInventario.Models;
+using SistemaInventario.BLL;
 
 namespace SistemaInventario.Controllers
 {
@@ -49,12 +50,11 @@ namespace SistemaInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UsuarioId,TiposUsuariosId,Nombre,Apellido,Clave,Fecha")] RegistroUsuarios registroUsuarios)
+        public ActionResult Create( RegistroUsuarios registroUsuarios)
         {
             if (ModelState.IsValid)
             {
-                db.usuario.Add(registroUsuarios);
-                db.SaveChanges();
+                UsuariosBLL.Guardar(registroUsuarios);
                 return RedirectToAction("Index");
             }
 

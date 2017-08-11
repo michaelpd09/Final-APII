@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaInventario.DAL;
 using SistemaInventario.Models;
+using SistemaInventario.BLL;
 
 namespace SistemaInventario.Controllers
 {
@@ -47,12 +48,11 @@ namespace SistemaInventario.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TiposUsuariosId,Nombre,Fecha")] TiposUsuarios tiposUsuarios)
+        public ActionResult Create( TiposUsuarios tiposUsuarios)
         {
             if (ModelState.IsValid)
             {
-                db.tipos.Add(tiposUsuarios);
-                db.SaveChanges();
+                TiposBLL.Guardar(tiposUsuarios);
                 return RedirectToAction("Index");
             }
 
@@ -112,7 +112,17 @@ namespace SistemaInventario.Controllers
         {
             TiposUsuarios tiposUsuarios = db.tipos.Find(id);
             db.tipos.Remove(tiposUsuarios);
-            db.SaveChanges();
+          
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                //throw new Exception("No se puedo borrar porque esta asociado a un usuario, intente borrar el usuario primero!!!", ex);
+              
+            }
+            
             return RedirectToAction("Index");
         }
 

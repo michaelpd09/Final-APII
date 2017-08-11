@@ -112,7 +112,15 @@ namespace SistemaInventario.Controllers
         {
             RegistroAlmacenes registroAlmacenes = db.almacen.Find(id);
             db.almacen.Remove(registroAlmacenes);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+
+            }
+
             return RedirectToAction("Index");
         }
 

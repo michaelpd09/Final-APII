@@ -25,6 +25,7 @@ namespace SistemaInventario.Models
 
         [Required(ErrorMessage = "La Clave es Obligatorio")]
         [DataType(DataType.Password)]
+        [Display(Name = "Contraseña ")]
         public string Clave { get; set; }
 
         [DataType(DataType.DateTime)]
