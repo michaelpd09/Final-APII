@@ -151,17 +151,19 @@
     <Compile Include="BLL\SparesBLL.cs" />
     <Compile Include="BLL\TiposBLL.cs" />
     <Compile Include="BLL\UsuariosBLL.cs" />
-    <Compile Include="Controllers\DetalleRegistroSparesController.cs" />
+    <Compile Include="Controllers\DetalleAlmacenSparesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistroAlmacenesController.cs" />
+    <Compile Include="Controllers\RegistroSparesController.cs" />
     <Compile Include="Controllers\RegistroUsuariosController.cs" />
     <Compile Include="Controllers\TiposUsuariosController.cs" />
     <Compile Include="DAL\InventarioDb.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DetalleAlmacenSpares.cs" />
     <Compile Include="Models\RegistroAlmacenes.cs" />
-    <Compile Include="Models\DetalleRegistroSpares.cs" />
+    <Compile Include="Models\RegistroSpares.cs" />
     <Compile Include="Models\RegistroUsuarios.cs" />
     <Compile Include="Models\TiposUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -227,12 +229,17 @@
     <Content Include="Views\TiposUsuarios\Details.cshtml" />
     <Content Include="Views\TiposUsuarios\Edit.cshtml" />
     <Content Include="Views\TiposUsuarios\Index.cshtml" />
-    <Content Include="Views\DetalleRegistroSpares\Create.cshtml" />
-    <Content Include="Views\DetalleRegistroSpares\Delete.cshtml" />
-    <Content Include="Views\DetalleRegistroSpares\Details.cshtml" />
-    <Content Include="Views\DetalleRegistroSpares\Edit.cshtml" />
-    <Content Include="Views\DetalleRegistroSpares\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\RegistroSpares\Create.cshtml" />
+    <Content Include="Views\RegistroSpares\Delete.cshtml" />
+    <Content Include="Views\RegistroSpares\Details.cshtml" />
+    <Content Include="Views\RegistroSpares\Edit.cshtml" />
+    <Content Include="Views\RegistroSpares\Index.cshtml" />
+    <Content Include="Views\DetalleAlmacenSpares\Create.cshtml" />
+    <Content Include="Views\DetalleAlmacenSpares\Delete.cshtml" />
+    <Content Include="Views\DetalleAlmacenSpares\Details.cshtml" />
+    <Content Include="Views\DetalleAlmacenSpares\Edit.cshtml" />
+    <Content Include="Views\DetalleAlmacenSpares\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

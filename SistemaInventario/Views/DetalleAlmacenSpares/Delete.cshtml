@@ -1,4 +1,4 @@
-﻿@model SistemaInventario.Models.RegistroAlmacenes
+﻿@model SistemaInventario.Models.DetalleAlmacenSpares
 
 @{
     ViewBag.Title = "Borrar";
@@ -6,25 +6,33 @@
 
 <h2>Borrar</h2>
 
-<h3>Esta seguro que desea borrar este Almacen?</h3>
+<h3>Esta seguro que desea borrar este Detalle?</h3>
 <div>
-    <h4>Registro de Almacenes</h4>
+    <h4>Detalle de Almacen Spares</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.RegistroAlmacen.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nombre)
+            @Html.DisplayFor(model => model.RegistroAlmacen.Nombre)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion)
+            @Html.DisplayNameFor(model => model.RegistroSpares.Nombre)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Ubicacion)
+            @Html.DisplayFor(model => model.RegistroSpares.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tecnologia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tecnologia)
         </dd>
 
         <dt>

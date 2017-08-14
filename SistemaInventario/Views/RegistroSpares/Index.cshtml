@@ -1,13 +1,13 @@
-﻿@model IEnumerable<SistemaInventario.Models.DetalleRegistroSpares>
+﻿@model IEnumerable<SistemaInventario.Models.RegistroSpares>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registro de Spare";
 }
 
-<h2>Index</h2>
+<h2>Registro de Spare</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create", "RegistroSpares", null, new { @class = "btn btn-primary btn-large" })
 </p>
 <table class="table">
     <tr>
@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SpareId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SpareId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SpareId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.SpareId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.SpareId }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.SpareId })
         </td>
     </tr>
 }

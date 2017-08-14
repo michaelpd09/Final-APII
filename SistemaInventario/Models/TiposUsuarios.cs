@@ -20,5 +20,6 @@ namespace SistemaInventario.Models
         public DateTime Fecha { get; set; }
 
         public virtual ICollection<RegistroUsuarios> RegistroUsuarios { get; set; }
+       
     }
 }

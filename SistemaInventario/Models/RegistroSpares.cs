@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SistemaInventario.Models
 {
-    public class DetalleRegistroSpares
+    public class RegistroSpares
     {
         [Key]
 
@@ -35,5 +35,6 @@ namespace SistemaInventario.Models
         public DateTime Fecha { get; set; }
 
         public virtual RegistroAlmacenes RegistroAlmacenes { get; set; }
+        public virtual ICollection<DetalleAlmacenSpares> DetalleAlmacenSpares { get; set; }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model SistemaInventario.Models.DetalleAlmacenSpares
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Detalle de Almacen Spares</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistroAlmacen.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistroAlmacen.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistroSpares.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistroSpares.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tecnologia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tecnologia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.DetalleAlmacenSpareId }) |
+    @Html.ActionLink("Volver a la Lista", "Index")
+</p>

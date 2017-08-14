@@ -9,7 +9,7 @@ namespace SistemaInventario.BLL
 {
     public class SparesBLL
     {
-        public static bool Guardar(DetalleRegistroSpares spare)
+        public static bool Guardar(RegistroSpares spare)
         {
             bool retorno = false;
             try

@@ -14,7 +14,7 @@ namespace SistemaInventario.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            var registroSpares = new Models.DetalleRegistroSpares();
+            var registroSpares = new Models.RegistroSpares();
 
             Assert.IsTrue(SparesBLL.Guardar(registroSpares));
         }

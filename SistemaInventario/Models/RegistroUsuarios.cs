@@ -32,6 +32,7 @@ namespace SistemaInventario.Models
         public DateTime Fecha { get; set; }
 
         public virtual TiposUsuarios TiposUsuarios { get; set; }
+      
 
     }
 }

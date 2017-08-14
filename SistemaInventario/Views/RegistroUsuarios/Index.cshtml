@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SistemaInventario.Models.RegistroUsuarios>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Regitro de Usuarios";
 }
 
-<h2>Index</h2>
+<h2>Registro de Usuarios</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "Create", "RegistroUsuarios", null, new { @class = "btn btn-primary btn-large" })
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Fecha)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UsuarioId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UsuarioId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UsuarioId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.UsuarioId }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.UsuarioId }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.UsuarioId })
         </td>
     </tr>
 }

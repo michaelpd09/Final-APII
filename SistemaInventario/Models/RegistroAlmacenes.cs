@@ -24,6 +24,7 @@ namespace SistemaInventario.Models
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
 
-        public virtual ICollection<DetalleRegistroSpares> RegistroSpare { get; set; }
+        public virtual ICollection<RegistroSpares> RegistroSpare { get; set; }
+        public virtual ICollection<DetalleAlmacenSpares> DetalleAlmacenSpare { get; set; }
     }
 }
